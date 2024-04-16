@@ -2,3 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 /* You can add global styles to this file, and also import other style files */
+.primary-bg {
+  background-color: #2b2b2b;
+}
+
+.primary-header-font {
+  font-family: 'Bungee', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: xx-large;
+}
+
+.primary-font {
+  color: #fff;
+  font-size: large;
+}
