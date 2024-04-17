@@ -3,10 +3,10 @@ import './AboutUs.css';
 
 const AboutUs = () => {
   return (
-    <div className="p-4">
-      <div className="flex justify-evenly justify-items-center">
+    <div className="p-4 flex flex-col items-center">
+      <div className="flex justify-items-center max-2md:flex-col items-center">
         {/* CULTURE */}
-        <div className="p-4">
+        <div className="p-4 section-block">
           <h2 className="text-white font-bold uppercase primary-header-font">
             Culture
           </h2>
@@ -16,10 +16,10 @@ const AboutUs = () => {
           </p>
         </div>
 
-        <div className="section-separator ml-6 mr-6" />
+        <div className="section-separator mx-6 max-2md:mx-0" />
 
         {/* COMMUNITY */}
-        <div className="p-4">
+        <div className="p-4 section-block">
           <h2 className="text-white font-bold uppercase primary-header-font">
             Community
           </h2>
@@ -29,10 +29,10 @@ const AboutUs = () => {
           </p>
         </div>
 
-        <div className="section-separator ml-6 mr-6" />
+        <div className="section-separator mx-6 max-2md:mx-0" />
 
         {/* CODE */}
-        <div className="p-4">
+        <div className="p-4 section-block">
           <h2 className="text-white font-bold uppercase primary-header-font">
             Code
           </h2>
@@ -43,10 +43,10 @@ const AboutUs = () => {
         </div>
       </div>
 
-      <div className="flex justify-evenly mt-40">
+      <div className="flex justify-evenly mt-40 max-xl:flex-col max-xl:items-center max-xl:mt-20">
         <img src={aboutUsPic} alt="Group pic" className="about-us-img" />
 
-        <div className="text-white ml-16">
+        <div className="text-white ml-16 max-w-[1000px] max-xl:ml-0">
           <h2 className="text-white font-bold uppercase primary-header-font">
             About Us
           </h2>
