@@ -1,0 +1,8 @@
+.navbar-container {
+  background-color: #5b2c87;
+  border-radius: 40rem;
+  color: #fff;
+  min-width: 450px;
+  position: absolute;
+  z-index: 1000;
+}

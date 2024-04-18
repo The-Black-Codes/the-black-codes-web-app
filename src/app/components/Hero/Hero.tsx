@@ -13,6 +13,7 @@ const Hero = () => {
       showArrows={false}
       showIndicators={false}
       showThumbs={false}
+      showStatus={false}
     >
       <div>
         <img src={tbcPanel} alt="panel" />

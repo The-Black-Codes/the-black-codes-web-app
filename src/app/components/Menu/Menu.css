@@ -1,0 +1,23 @@
+.menu-container {
+  z-index: 2000;
+  width: 20px;
+  border: 10px;
+  background-color: #5b2c87;
+}
+
+.menu-item {
+  display: block;
+  padding: 10px 15px;
+  color: #d1d1d1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.menu-item:hover {
+  color: #fff;
+}
+
+#react-burger-menu-btn {
+  width: 50px !important;
+  height: 50px !important;
+}
