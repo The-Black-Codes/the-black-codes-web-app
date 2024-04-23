@@ -5,4 +5,8 @@
   min-width: 450px;
   position: absolute;
   z-index: 1000;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0.25rem;
+  margin-top: 3rem;
 }
