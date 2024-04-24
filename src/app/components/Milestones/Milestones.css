@@ -1,0 +1,106 @@
+.milestones-container {
+  margin: 50px 0;
+  height: 100%;
+}
+
+.milestone-header {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/********** Left Column ****************************/
+.left-blurb-container {
+  text-align: right;
+  max-width: 350px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.lbc-container {
+  display: flex;
+  justify-content: right;
+  margin-right: 100px;
+  padding-top: 125px;
+}
+
+.lic-container {
+  display: flex;
+  justify-content: right;
+}
+
+.left-img-container {
+  width: 350px;
+  height: 350px;
+  background-color: #5b2c87;
+  border-radius: 200px;
+  display: flex;
+  align-items: center;
+}
+/**************************************************/
+
+/************* Center Column ***********************/
+.timeline-container {
+  grid-template-columns: 2fr 0.3fr 2fr;
+}
+
+.year-bubble-container {
+  display: flex;
+  justify-content: center;
+}
+
+.year-bubble {
+  width: 125px;
+  height: 125px;
+  border-radius: 100px;
+  background-color: #5b2c87;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+}
+/*****************************************************/
+
+/**************** Right Column ***********************/
+.right-blurb-container {
+  text-align: left;
+  max-width: 350px;
+  display: flex;
+  justify-content: flex-start;
+}
+.rbc-container {
+  display: flex;
+  justify-content: left;
+  margin-left: 100px;
+  padding-top: 125px;
+}
+
+.ric-container {
+  display: flex;
+  justify-content: left;
+}
+
+.right-img-container {
+  width: 350px;
+  height: 350px;
+  background-color: #5b2c87;
+  border-radius: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+/*****************************************************/
+
+/**************** Images CSS ***********************/
+#pic1 {
+  width: 320px;
+  height: 320px;
+  border-radius: 200px;
+  object-fit: cover;
+}
+
+#pic2 {
+  width: 320px;
+  height: 320px;
+  border-radius: 200px;
+  object-fit: cover;
+}
