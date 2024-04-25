@@ -4,6 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 import Milestones from './components/Milestones/Milestones';
 import Donate from './components/Donate/Donate';
 import './app.css';
+import Footer from './components/Footer/Footer';
 
 export const App = () => {
   return (
@@ -13,6 +14,7 @@ export const App = () => {
       <AboutUs />
       <Milestones />
       <Donate />
+      <Footer />
     </div>
   );
 };

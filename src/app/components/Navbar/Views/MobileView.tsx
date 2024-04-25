@@ -1,4 +1,4 @@
-import hamburgerIcon from '../../../../images/icons8-hamburger-menu-144(@3×).png';
+import hamburgerIcon from '../../../../icons/icons8-hamburger-menu-144(@3×).png';
 import './MobileView.css';
 
 import React, { useState } from 'react';
