@@ -2,6 +2,7 @@ import Hero from './components/Hero/Hero';
 import AboutUs from './components/AboutUs/AboutUs';
 import Navbar from './components/Navbar/Navbar';
 import Milestones from './components/Milestones/Milestones';
+import Donate from './components/Donate/Donate';
 import './app.css';
 
 export const App = () => {
@@ -11,6 +12,7 @@ export const App = () => {
       <Hero />
       <AboutUs />
       <Milestones />
+      <Donate />
     </div>
   );
 };
