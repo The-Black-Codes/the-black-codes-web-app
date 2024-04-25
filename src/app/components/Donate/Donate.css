@@ -24,6 +24,12 @@
   }
 }
 
+@media (max-width: 500px) {
+  .donate-text {
+    font-size: medium;
+  }
+}
+
 .overlay {
   display: flex;
   align-items: center;
