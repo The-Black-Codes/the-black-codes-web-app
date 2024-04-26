@@ -1,0 +1,31 @@
+.section-separator {
+  width: 5px;
+  height: 185px;
+  background-color: #5b2c87;
+}
+
+@media (max-width: 849px) {
+  .section-separator {
+    height: 5px;
+    width: 350px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+}
+
+.about-us-img {
+  min-width: 50%;
+  max-height: 600px;
+}
+
+@media (max-width: 1200px) {
+  .about-us-img {
+    min-width: 300px;
+    margin-bottom: 20px;
+  }
+}
+
+.section-block {
+  max-width: 475px;
+  min-width: 200px;
+}
