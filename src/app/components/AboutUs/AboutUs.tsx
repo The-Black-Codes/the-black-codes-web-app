@@ -3,7 +3,7 @@ import './AboutUs.css';
 
 const AboutUs = () => {
   return (
-    <div className="p-4 flex flex-col items-center">
+    <div id="about-us" className="p-4 flex flex-col items-center">
       <div className="flex justify-items-center max-2md:flex-col items-center">
         {/* CULTURE */}
         <div className="p-4 section-block">
