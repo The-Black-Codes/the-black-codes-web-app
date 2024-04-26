@@ -24,6 +24,8 @@ const MobileView = () => {
         return '#contact-us';
       case 'Donate':
         return '#donate';
+      case 'Milestones':
+        return '#milestones';
 
       default:
         return '';
@@ -61,6 +63,12 @@ const MobileView = () => {
         <ListItem disablePadding>
           <a href="#about-us">
             <ListItemText primary="About Us" />
+          </a>
+        </ListItem>
+        <Divider />
+        <ListItem disablePadding>
+          <a href="#milestones">
+            <ListItemText primary="Milestones" />
           </a>
         </ListItem>
         <Divider />
