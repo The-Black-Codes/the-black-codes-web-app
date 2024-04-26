@@ -1,0 +1,39 @@
+.mobile-timeline-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 60px;
+  align-items: center;
+}
+
+.milestone-blurb {
+  max-width: 300px;
+  margin: 20px;
+}
+
+.mobile-year-bubble {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  background-color: #5b2c87;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.trailing-bubble-1 {
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  background-color: #5b2c87;
+  margin: 5px;
+}
+
+.trailing-bubble-2 {
+  width: 15px;
+  height: 15px;
+  border-radius: 100px;
+  background-color: #5b2c87;
+}
