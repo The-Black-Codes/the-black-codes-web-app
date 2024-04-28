@@ -5,6 +5,7 @@ import Milestones from './components/Milestones/Milestones';
 import Donate from './components/Donate/Donate';
 import './app.css';
 import Footer from './components/Footer/Footer';
+import EventCalendar from './components/EventCalendar/EventCalendar';
 
 export const App = () => {
   return (
@@ -13,6 +14,7 @@ export const App = () => {
       <Hero />
       <AboutUs />
       <Milestones />
+      <EventCalendar />
       <Donate />
       <Footer />
     </div>
