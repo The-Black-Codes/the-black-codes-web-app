@@ -1,5 +1,11 @@
 @import 'react-big-calendar/lib/sass/styles';
 
+.event-calendar-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
 .rbc-active {
   background-color: #c798f39d !important;
   color: #fff !important;

@@ -32,7 +32,8 @@ const myEventsList = [
 ];
 
 const EventCalendar = () => (
-  <div>
+  <div className="event-calendar-container">
+    <h1 className="text-white primary-header-font">Event Calendar</h1>
     <Calendar
       localizer={localizer}
       events={myEventsList}
