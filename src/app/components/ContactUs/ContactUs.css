@@ -2,32 +2,57 @@
 
 .contact-form-container {
     display: flex;
-    justify-content: space-between;
     padding: 20px;
-    margin: 0 auto;
-    max-width: 100%; /* Adjust based on your layout needs */
-    background: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 20px auto; 
+    max-width: 100%;
+    min-height: 50vh;
 }
 
 .contact-form-column {
-    width: 48%; /* Slightly less than half to fit padding */
+    width: 48%;
+    margin: auto;
 }
 
 .contact-form-text {
     font-size: 16px;
     line-height: 1.5;
-    color: #333;
+    color: #fff;
 }
 
 .contact-form form {
+    width: 90%;
+    max-width: 600px;
+}
+
+.left-column {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
+.right-column {
+    margin-bottom: 30px;
+}
+
+.left-column .header {
+    font-size: 30px;
+    font-weight: bolder;
+    margin-bottom: 30px;
+}
+
+.input-box {
+    margin-bottom: 10px;
+    position: relative;
+}
+
 .contact-form label {
-    font-weight: bold;
-    margin-bottom: 5px;
+    pointer-events: none;
+    position: absolute;
+    left: 10px;
+    top: -5px;
+    padding: 10px;
+    color: #000;
 }
 
 .contact-form input[type="text"],
@@ -35,13 +60,20 @@
 .contact-form textarea {
     padding: 8px;
     margin-bottom: 10px;
+    margin-left: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
+    width: 100%;
+}
+
+.input-box:focus-within .details {
+    opacity: 0;
+    transform: translateY(-20px); /* Moves label out of sight when textarea is focused */
 }
 
 .contact-form textarea {
-    height: 100px;
+    height: 150px;
     resize: vertical;
 }
 
@@ -57,4 +89,14 @@
 
 .contact-form button:hover {
     background-color: #0056b3;
+} 
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.row .input-box {
+    flex-basis: 48%;
 }

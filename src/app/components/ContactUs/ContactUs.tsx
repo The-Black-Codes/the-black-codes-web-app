@@ -33,8 +33,8 @@ const ContactForm: React.FC = ()=> {
         // Add logic to handle form submission like sending data to an API
         if (form.current) {
             emailjs.sendForm(
-                'service_vlh0aho', 
-                'Ytemplate_zopzi5d', 
+                'service_vlh0aho', //service_id
+                'template_zopzi5d', //template_id
                 form.current, 
             {publicKey: 'zcVIyTK52C2MPH_Gn',}
             ).then(
@@ -52,29 +52,36 @@ const ContactForm: React.FC = ()=> {
     
         return (
             <div className="contact-form-container">
-                <div className="contact-form-column">
+                <div className="contact-form-column left-column">
+                    <p className='header primary-font'>Contact Us</p>
                     <p className="contact-form-text">
-                        Please fill out this form with your contact details and your message, and we will get back to you as soon as possible.
-                    </p>
+                    Thank you for contacting The Black Codes! Our community is built on
+                     a foundation of mutual support and empowerment among passionate individuals. 
+                     Should you have questions or wish to engage with us, please feel free to get 
+                     in touch. We're excited about the prospect of connecting with you and fostering
+                     meaningful connections within our network.
+                     </p>
                 </div>
-                <div className="contact-form-column">
-                    <form className="contact-form" onSubmit={handleSubmit}>
-                        <label>
-                            First Name:
-                            <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} />
-                        </label>
-                        <label>
-                            Last Name:
-                            <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} />
-                        </label>
-                        <label>
-                            Email:
+                <div className="contact-form-column right-column">
+                    <form ref={form} className="contact-form" onSubmit={handleSubmit}>
+                        <div className='row'>
+                            <div className='input-box'>
+                                <label className='details'>First Name</label>
+                                <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} />
+                            </div>
+                            <div className='input-box'>   
+                                <label className='details'>Last Name</label>
+                                <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} />
+                            </div>
+                        </div>
+                        <div className='input-box'>
+                            <label className='details'>Email </label>
                             <input type="email" name="user_email" value={formData.user_email} onChange={handleChange} />
-                        </label>
-                        <label>
-                            Message:
-                        </label>
+                        </div>
+                        <div className='input-box'>   
+                            <label className='details'> Message </label>
                             <textarea name="message" value={formData.message} onChange={handleChange} />
+                        </div>
                         <button type="submit">Submit</button>
                     </form>
                 </div>
