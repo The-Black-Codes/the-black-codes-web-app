@@ -14,7 +14,7 @@
 }
 
 .contact-form-text {
-    font-size: 16px;
+    font-size: 24px;
     line-height: 1.5;
     color: #fff;
 }
@@ -33,6 +33,7 @@
 
 .right-column {
     margin-bottom: 30px;
+    padding-left: 10%;
 }
 
 .left-column .header {
@@ -49,8 +50,8 @@
 .contact-form label {
     pointer-events: none;
     position: absolute;
-    left: 10px;
-    top: -5px;
+    left: 15px;
+    top: -4px;
     padding: 10px;
     color: #000;
 }
@@ -62,9 +63,9 @@
     margin-bottom: 10px;
     margin-left: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 20px;
     font-size: 14px;
-    width: 100%;
+    width: 80%;
 }
 
 .input-box:focus-within .details {
@@ -78,25 +79,27 @@
 }
 
 .contact-form button {
-    background-color: #007BFF;
-    color: white;
-    padding: 10px 15px;
+    background-color: white;
+    color: #5b2c87;
+    padding: 10px 20px;
+    margin-left: 10px;
+    width: 80%;
     border: none;
-    border-radius: 4px;
+    border-radius: 20px;
     cursor: pointer;
     font-size: 16px;
 }
 
 .contact-form button:hover {
-    background-color: #0056b3;
+    background-color: #5b2c87;
+    color: white;
 } 
 
 .row {
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 
 .row .input-box {
-    flex-basis: 48%;
+    flex-basis: 44.5%;
 }
