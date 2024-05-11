@@ -1,105 +1,172 @@
 /* ContactForm Styles */
 
 .contact-form-container {
-    display: flex;
-    padding: 20px;
-    margin: 20px auto; 
-    max-width: 100%;
-    min-height: 50vh;
+  display: flex;
+  padding: 20px;
+  margin: 20px auto;
+  min-height: 50vh;
+  justify-content: space-between;
+  background-color: #5b2c87;
 }
 
 .contact-form-column {
-    width: 48%;
-    margin: auto;
+  width: 48%;
+  margin: auto;
+}
+
+@media (max-width: 1279px) {
+  .contact-form-container {
+    flex-direction: column;
+    max-width: 1020px;
+    padding-bottom: 100px;
+  }
+  .contact-form-column {
+    width: 100%;
+    margin: 50px;
+  }
 }
 
 .contact-form-text {
-    font-size: 24px;
-    line-height: 1.5;
-    color: #fff;
+  font-size: 24px;
+  line-height: 1.5;
+  color: #fff;
 }
 
 .contact-form form {
-    width: 90%;
-    max-width: 600px;
+  /* width: 90%; */
+  max-width: 600px;
 }
 
 .left-column {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 50%;
 }
 
 .right-column {
-    margin-bottom: 30px;
-    padding-left: 10%;
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+@media (max-width: 1279px) {
+  .left-column {
+    margin-bottom: 50px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .right-column {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 .left-column .header {
-    font-size: 30px;
-    font-weight: bolder;
-    margin-bottom: 30px;
+  font-size: 30px;
+  font-weight: bolder;
+  margin-bottom: 30px;
 }
 
 .input-box {
-    margin-bottom: 10px;
-    position: relative;
+  /* margin-bottom: 10px;
+  position: relative; */
 }
 
 .contact-form label {
-    pointer-events: none;
-    position: absolute;
-    left: 15px;
-    top: -4px;
-    padding: 10px;
-    color: #000;
+  pointer-events: none;
+  position: absolute;
+  left: 15px;
+  top: -4px;
+  padding: 10px;
+  color: #000;
 }
 
-.contact-form input[type="text"],
-.contact-form input[type="email"],
+.contact-form input[type='text'],
+.contact-form input[type='email'],
 .contact-form textarea {
-    padding: 8px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    font-size: 14px;
-    width: 80%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 14px;
 }
 
 .input-box:focus-within .details {
-    opacity: 0;
-    transform: translateY(-20px); /* Moves label out of sight when textarea is focused */
+  opacity: 0;
+  transform: translateY(
+    -20px
+  ); /* Moves label out of sight when textarea is focused */
+}
+
+.contact-form {
+  max-height: 350px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 750px;
+  padding: 60px;
+}
+
+@media (max-width: 750px) {
+  .contact-form {
+    padding: 60px 0;
+  }
 }
 
 .contact-form textarea {
-    height: 150px;
-    resize: vertical;
+  height: 150px;
+  resize: vertical;
 }
 
 .contact-form button {
-    background-color: white;
-    color: #5b2c87;
-    padding: 10px 20px;
-    margin-left: 10px;
-    width: 80%;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 16px;
+  /* background-color: white;
+  color: #5b2c87; */
+  background-color: #5b2c87;
+  color: #fff;
+  border: 1px solid #b972fc;
+  padding: 10px 20px;
+  width: 100%;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 .contact-form button:hover {
-    background-color: #5b2c87;
-    color: white;
-} 
-
-.row {
-    display: flex;
-    align-items: center;
+  /* background-color: #5b2c87; */
+  background-color: #b972fc;
+  color: white;
+  border: 1px solid #5b2c87;
 }
 
-.row .input-box {
-    flex-basis: 44.5%;
+.row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.input-box {
+  width: 100%;
+  margin: 12px 0px;
+}
+
+.name-input {
+  margin-bottom: 10px;
+  width: 49%;
+  height: 50px;
+}
+
+.email-input {
+  width: 100%;
+  height: 50px;
+}
+
+.message-textarea {
+  width: 100%;
+}
+
+.name-container {
+  width: 100%;
 }
