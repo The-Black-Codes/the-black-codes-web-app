@@ -6,6 +6,7 @@ import Donate from './components/Donate/Donate';
 import './app.css';
 import ContactForm from './components/ContactUs/ContactUs';
 import Footer from './components/Footer/Footer';
+import EventCalendar from './components/EventCalendar/EventCalendar';
 
 export const App = () => {
   return (
@@ -15,6 +16,7 @@ export const App = () => {
       <AboutUs />
       <ContactForm />
       <Milestones />
+      <EventCalendar />
       <Donate />
       <Footer />
     </div>
