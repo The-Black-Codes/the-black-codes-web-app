@@ -16,6 +16,9 @@
 #menu-button {
   margin-right: 15px;
   margin-top: 35px;
+  background-color: #e2c1ff;
+  height: 45px;
+  border-radius: 14px;
 }
 
 .MuiPaper-root {
