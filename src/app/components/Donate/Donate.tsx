@@ -16,7 +16,7 @@ const Donate = () => {
           show to prospective employers. In this case, everyone wins!
         </h3>
         <button className="donate-button text-white mt-10 donate-text">
-          Donate
+          <a href="https://nonprofit.resilia.com/donate?id=f8011283da89e79337584f47ccf1b54e2d3a7838cb6261549ee505f60ae16980" target="_blank">Donate</a>
         </button>
       </div>
     </div>

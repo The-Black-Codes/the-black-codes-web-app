@@ -29,31 +29,28 @@ const ContactForm: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log('Form Data Submitted:', formData);
-    // Add logic to handle form submission like sending data to an API
-    if (form.current) {
-      emailjs
-        .sendForm(
-          'service_vlh0aho', //service_id
-          'template_zopzi5d', //template_id
-          form.current,
-          { publicKey: 'zcVIyTK52C2MPH_Gn' }
-        )
-        .then(
-          () => {
-            console.log('SUCCESS!');
-          },
-          (error) => {
-            console.log('FAILED...', error.text);
-          }
-        )
-        .catch((error: any) => {
-          console.error('An error occurred:', error.message || 'Unknown error');
-        });
-    }
-  };
+    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        console.log('Form Data Submitted:', formData);
+        // Add logic to handle form submission like sending data to an API
+        if (form.current) {
+            emailjs.sendForm(
+                'service_vlh0aho', //service_id
+                'template_zopzi5d', //template_id
+                form.current, 
+            {publicKey: 'zcVIyTK52C2MPH_Gn',}
+            ).then(
+            () => {
+                console.log('SUCCESS!');
+            },
+            (error) => {
+                console.log('FAILED...', error.text);
+            },
+            ).catch((error: any) => {
+                console.error('An error occurred:', error.message || 'Unknown error');
+            });
+        }
+    };
 
   return (
     <div id="contact-us" className="contact-form-container">
