@@ -1,0 +1,85 @@
+.sponsorship-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    max-height: 1000px;
+    padding: 60px 40px;
+  }
+  
+.sponsorship-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sponsorship-header {
+  font-family: 'Bungee', sans-serif;
+  font-weight: 200;
+  font-size: x-large;
+  text-align: center;
+  color: white;
+  margin-bottom: 100px;
+}
+
+.sponsor-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  text-align: center; /* Ensures center alignment of text within container */
+  margin-bottom: 100px;
+}
+
+.sponsor-logo {
+  width: 350px;
+  margin-bottom: 10px;
+}
+  
+  .sponsor-name {
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .sponsor-website-link {
+    font-size: 0.775em; /* Slightly smaller than normal text */
+    font-family: 'Bungee', sans-serif;
+    color: white; /* Default color */
+    text-decoration: none;
+    justify-content: center;
+    text-decoration: underline;
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  .sponsor-website-link:hover {
+    color: #5b2c87; /* Hover color */
+    text-decoration: none;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 820px) {
+    .sponsorship-header {
+      font-size: large;
+    }
+  
+    .sponsor-logo {
+      width: 120px;
+    }
+  
+    .sponsor-name {
+      font-size: medium;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .sponsorship-header {
+      font-size: medium;
+    }
+  
+    .sponsor-logo {
+      width: 100px;
+    }
+  }
+  
