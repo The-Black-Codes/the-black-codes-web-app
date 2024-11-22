@@ -1,27 +1,18 @@
-import Hero from './components/Hero/Hero';
-import AboutUs from './components/AboutUs/AboutUs';
-import Navbar from './components/Navbar/Navbar';
-import Milestones from './components/Milestones/Milestones';
-import Donate from './components/Donate/Donate';
 import './app.css';
-import ContactForm from './components/ContactUs/ContactUs';
-import Footer from './components/Footer/Footer';
-import Sponsorship from './components/Sponsor/Sponsors';
-import EventCalendar from './components/EventCalendar/EventCalendar';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import AdminHome from './pages/Admin/AdminHome';
+import Home from './pages/Home/Home';
+import Login from './pages/Login/Login';
 
 export const App = () => {
   return (
-    <div id="home" className="app-container primary-bg mx-auto max-w-custom">
-      <Navbar />
-      <Hero />
-      <AboutUs />
-      <ContactForm />
-      <Milestones />
-      <Sponsorship />
-      <EventCalendar />
-      <Donate />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/admin" element={<AdminHome />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 

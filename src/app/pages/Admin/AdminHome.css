@@ -1,0 +1,9 @@
+#admin-home {
+    min-height: 800px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    padding-top: 100px;
+}
