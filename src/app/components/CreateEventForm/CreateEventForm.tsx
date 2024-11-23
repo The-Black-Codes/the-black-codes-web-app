@@ -1,46 +1,36 @@
-import React from 'react';
-import { useForm, Controller } from 'react-hook-form';
+import React, { useContext } from 'react';
+import { useForm } from 'react-hook-form';
 import { TextField, Button } from '@mui/material';
-import { db } from '../../database/firebaseConfig.ts';
-import { collection, addDoc, deleteDoc, doc, updateDoc, getDoc } from 'firebase/firestore';
 import './CreateEventForm.scss';
 import { EventFormProps, EventFormInputs } from 'src/app/types/types.ts';
+import { addDoc, collection } from 'firebase/firestore';
+import { db } from 'src/app/database/firebaseConfig';
+import { getAllEvents } from 'src/app/requests';
+import { MyContext } from 'src/app/context/EventsProvider';
 
-const CreateEventForm: React.FC<EventFormProps> = ({setEvents}) => {
-  const { register, handleSubmit, control, watch, formState: { errors } } = useForm<EventFormInputs>();
+const CreateEventForm: React.FC<EventFormProps> = () => {
+  const { register, handleSubmit, formState: { errors } } = useForm<EventFormInputs>();
+  const { setEvents } = useContext(MyContext);
 
-  const onSubmit = async (data: EventFormInputs) => {
+  const createEvent = async (data: EventFormInputs) => {
     try {
       const docRef = await addDoc(collection(db, 'events'), data);
       console.log('Event created with ID: ', docRef.id);
+      getAllEvents().then((events) => {
+        if (events) {
+          setEvents(events);
+        } else {
+          console.error('Failed to fetch events');
+        }
+      });
     } catch (e) {
       console.error('Error adding document: ', e);
     }
   };
-
-  const deleteEvent = async (id: string) => {
-    try {
-      await deleteDoc(doc(db, 'events', id));
-      console.log('Event deleted with ID: ', id);
-    } catch (e) {
-      console.error('Error deleting document: ', e);
-    }
-  };
-
-  const editEvent = async (id: string, updatedData: Partial<EventFormInputs>) => {
-    try {
-      const eventRef = doc(db, 'events', id);
-      await updateDoc(eventRef, updatedData);
-      console.log('Event updated with ID: ', id);
-    } catch (e) {
-      console.error('Error updating document: ', e);
-    }
-  };
-
   return (
     <div id="form-container">
       <h1 className="secondary-header-font">Add a New Event to the Calendar</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(createEvent)}>
         <div className="text-input">
           <TextField
             {...register('title', { required: 'Title is required' })}

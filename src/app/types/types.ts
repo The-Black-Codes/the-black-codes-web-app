@@ -20,3 +20,9 @@ export interface CalendarEvent {
 export interface CalendarProps {
     events?: CalendarEvent[] | undefined
 }
+
+export interface ModalProps {
+  event: CalendarEvent;
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
