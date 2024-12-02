@@ -2,35 +2,68 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { TextField, Button } from '@mui/material';
 import './CreateEventForm.scss';
-import { EventFormProps, EventFormInputs } from 'src/app/types/types.ts';
-import { addDoc, collection } from 'firebase/firestore';
+import { EventFormInputs, EventFormProps } from 'src/app/types/types.ts';
+import { addDoc, collection, doc, updateDoc } from 'firebase/firestore';
 import { db } from 'src/app/database/firebaseConfig';
 import { getAllEvents } from 'src/app/requests';
 import { MyContext } from 'src/app/context/EventsProvider';
 
-const CreateEventForm: React.FC<EventFormProps> = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm<EventFormInputs>();
-  const { setEvents } = useContext(MyContext);
+const CreateEventForm: React.FC<EventFormProps> = ({isEditing, setIsEditing}) => {
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<EventFormInputs>();
+  const { setEvents, selectedEvent } = useContext(MyContext);
 
   const createEvent = async (data: EventFormInputs) => {
-    try {
-      const docRef = await addDoc(collection(db, 'events'), data);
-      console.log('Event created with ID: ', docRef.id);
-      getAllEvents().then((events) => {
+      try {
+        const docRef = await addDoc(collection(db, 'events'), data);
+        console.log('Event created with ID: ', docRef.id);
+        getAllEvents().then((events) => {
+          if (events) {
+            setEvents(events);
+            reset();
+          } else {
+            console.error('Failed to fetch events');
+          }
+        });
+      } catch (e) {
+        console.error('Error adding document: ', e);
+      }
+    };
+  
+    const updateEvent = async (data: EventFormInputs) => {
+      getAllEvents().then(async (events) => {
         if (events) {
-          setEvents(events);
-        } else {
-          console.error('Failed to fetch events');
+          const updatedEventId = events.find((event) => event.title === selectedEvent?.title)?.id;
+          if (updatedEventId) {
+            await updateDoc(doc(db, 'events', updatedEventId), { ...data });
+            getAllEvents().then((events) => {
+              if (events) {
+                setEvents(events);
+                reset();
+              } else {
+                console.error('Failed to fetch events to update');
+              }
+            });
+            if (isEditing && setIsEditing) {
+              setIsEditing(false);
+            }
+          } else {
+            console.error('No event found with the given title');
+          }
         }
       });
-    } catch (e) {
-      console.error('Error adding document: ', e);
     }
-  };
+
+  const createOrUpdate = (data: EventFormInputs) => {
+    if (isEditing) {
+      updateEvent(data);
+    } else {
+      createEvent(data);
+    }
+  }
   return (
     <div id="form-container">
       <h1 className="secondary-header-font">Add a New Event to the Calendar</h1>
-      <form onSubmit={handleSubmit(createEvent)}>
+      <form onSubmit={handleSubmit(createOrUpdate)}>
         <div className="text-input">
           <TextField
             {...register('title', { required: 'Title is required' })}
@@ -39,6 +72,7 @@ const CreateEventForm: React.FC<EventFormProps> = () => {
             fullWidth
             error={!!errors.title}
             helperText={errors.title?.message}
+            name='title'
           />
         </div>
           <div className="times">
@@ -52,6 +86,7 @@ const CreateEventForm: React.FC<EventFormProps> = () => {
               error={!!errors.start}
               helperText={errors.start?.message}
               className="time"
+              name='start'
             />
             <TextField
               {...register('end', { required: 'End time is required' })}
@@ -63,6 +98,7 @@ const CreateEventForm: React.FC<EventFormProps> = () => {
               error={!!errors.end}
               helperText={errors.end?.message}
               className="time"
+              name='end'
             />
           </div>
         <div className="text-input">
@@ -73,11 +109,18 @@ const CreateEventForm: React.FC<EventFormProps> = () => {
             fullWidth
             multiline
             rows={4}
+            name='description'
           />
         </div>
+        {isEditing ? (
+          <Button type="submit" variant="contained" color="primary">
+            Update Event
+          </Button>
+        ) : (
         <Button type="submit" variant="contained" color="primary">
           Create Event
         </Button>
+        )}
       </form>
     </div>
   );

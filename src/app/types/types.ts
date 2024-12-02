@@ -5,10 +5,6 @@ export interface EventFormInputs {
   description: string;
 }
 
-export interface EventFormProps {
-  setEvents: React.Dispatch<React.SetStateAction<CalendarEvent[] | undefined>>;
-}
-
 export interface CalendarEvent {
   id: string;
   title: string;
@@ -18,11 +14,18 @@ export interface CalendarEvent {
 }
 
 export interface CalendarProps {
-    events?: CalendarEvent[] | undefined
+  events?: CalendarEvent[] | undefined;
+  setIsEditing?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface ModalProps {
   event: CalendarEvent;
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsEditing?: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface EventFormProps {
+  isEditing: boolean;
+  setIsEditing?: React.Dispatch<React.SetStateAction<boolean>>;
 }

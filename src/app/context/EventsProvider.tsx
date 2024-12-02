@@ -7,6 +7,8 @@ import { getAllEvents } from '../requests';
 interface MyContextType {
   events: CalendarEvent[];
   setEvents: React.Dispatch<React.SetStateAction<CalendarEvent[]>>;
+  selectedEvent: CalendarEvent | undefined;
+  setSelectedEvent: React.Dispatch<React.SetStateAction<CalendarEvent | undefined>>;
 }
 
 // Create the context with a default value
@@ -18,6 +20,7 @@ interface MyProviderProps {
 
 const MyProvider: React.FC<MyProviderProps> = ({ children }) => {
   const [events, setEvents] = useState<CalendarEvent[]>([]);
+  const [selectedEvent, setSelectedEvent] = useState<CalendarEvent>();
 
   useEffect(() => {
     getAllEvents().then((data) => {
@@ -28,7 +31,7 @@ const MyProvider: React.FC<MyProviderProps> = ({ children }) => {
   }, []);
   
   return (
-    <MyContext.Provider value={{ events, setEvents }}>
+    <MyContext.Provider value={{ events, setEvents, selectedEvent, setSelectedEvent }}>
       {children}
     </MyContext.Provider>
   );

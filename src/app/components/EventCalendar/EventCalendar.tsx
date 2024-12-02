@@ -9,9 +9,8 @@ import React from 'react';
 
 const localizer = dayjsLocalizer(dayjs);
 
-const EventCalendar: React.FC<CalendarProps> = () => {
-  const { events } = useContext(MyContext);
-  const [selectedEvent, setSelectedEvent] = React.useState<CalendarEvent | null>(null);
+const EventCalendar: React.FC<CalendarProps> = ({setIsEditing}) => {
+  const { events, selectedEvent, setSelectedEvent } = useContext(MyContext);
   const [open, setOpen] = useState<boolean>(false);
   const toggleOpen = () => setOpen(!open);
   const handleSelectEvent = (event: CalendarEvent) => {
@@ -29,7 +28,7 @@ const EventCalendar: React.FC<CalendarProps> = () => {
         endAccessor="end"
         onSelectEvent={handleSelectEvent}
       />
-      {selectedEvent && <BasicModal event={selectedEvent} open={open} setOpen={setOpen} />}
+      {selectedEvent && <BasicModal event={selectedEvent} open={open} setOpen={setOpen} setIsEditing={setIsEditing} />}
     </div>
   );
 };
