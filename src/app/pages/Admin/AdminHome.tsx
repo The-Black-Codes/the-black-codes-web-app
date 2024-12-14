@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import EventCalendar from "src/app/components/EventCalendar/EventCalendar";
 import "./AdminHome.css";
 import CreateEventForm from "src/app/components/CreateEventForm/CreateEventForm";
-import { CalendarEvent } from 'src/app/types/types';
 import { FormProvider, useForm } from 'react-hook-form';
+
 
 const AdminHome = () => {
   const method = useForm();

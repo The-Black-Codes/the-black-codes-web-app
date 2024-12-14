@@ -9,6 +9,7 @@
   },
   "private": true,
   "dependencies": {
+    "@auth0/auth0-react": "^2.2.4",
     "@emailjs/browser": "^4.3.3",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
@@ -22,7 +23,7 @@
     "node-polyfill-webpack-plugin": "^4.0.0",
     "nx-ignore": "^19.8.0",
     "react": "18.2.0",
-    "react-big-calendar": "^1.12.0",
+    "react-big-calendar": "^1.17.0",
     "react-burger-menu": "^3.0.9",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.53.2",
