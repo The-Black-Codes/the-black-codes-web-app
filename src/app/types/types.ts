@@ -22,10 +22,14 @@ export interface ModalProps {
   event: CalendarEvent;
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  setIsEditing?: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsEditing?: React.Dispatch<React.SetStateAction<boolean>> | null;
 }
 
 export interface EventFormProps {
   isEditing: boolean;
   setIsEditing?: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface MobileViewProps {
+  isAdminPage: boolean;
 }

@@ -17,6 +17,7 @@
     "jsx": "react-jsx",
     "allowJs": false,
     "esModuleInterop": false,
+    "noEmit": true,
     "allowSyntheticDefaultImports": true,
     "allowImportingTsExtensions": true,
     "strict": true

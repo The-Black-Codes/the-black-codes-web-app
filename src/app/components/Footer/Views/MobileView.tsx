@@ -3,9 +3,12 @@ import instagramIcon from '../../../../icons/icons8-instagram-50.png';
 import linkedinIcon from '../../../../icons/icons8-linkedin-50.png';
 import xIcon from '../../../../icons/icons8-x-96.png';
 import tbcIcon from '../../../../icons/tbc_logo.png';
+import { useAuth0 } from '@auth0/auth0-react';
 import './MobileView.css';
 
 const MobileView = () => {
+  const { loginWithRedirect } = useAuth0();
+
   return (
     <div className="mobile-footer-container">
       {/* Logo */}
@@ -23,6 +26,12 @@ const MobileView = () => {
         <div className="flex items-center justify-center">
           <h4 className="text-white footer-header">EIN:</h4>{' '}
           <p className="text-white pt-2 ml-3">93-2013251</p>
+        </div>
+        <div className="flex items-center justify-center">
+          <button onClick={() => loginWithRedirect()} className="text-white footer-header">Admin Page</button>
+          {/* <a className="text-white nav-link pt-2 ml-3" onClick={() => loginWithRedirect()}>
+            Sign In
+          </a> */}
         </div>
       </div>
 

@@ -5,11 +5,13 @@ import linkedinIcon from '../../../icons/icons8-linkedin-50.png';
 import xIcon from '../../../icons/icons8-x-96.png';
 import tbcIcon from '../../../icons/tbc_logo.png';
 import MobileView from './Views/MobileView';
+import { useAuth0 } from '@auth0/auth0-react';
 
 import './Footer.css';
 
 const Footer = () => {
   const [mobileView, setMobileView] = useState(false);
+  const { loginWithRedirect } = useAuth0();
 
   useEffect(() => {
     const setResponsiveness = () => {
@@ -65,6 +67,11 @@ const Footer = () => {
               </a>
               <a className="text-white nav-link" href="#donate">
                 Donate
+              </a>
+
+              <h4 className="text-white footer-header">Admin Page</h4>
+              <a className="text-white nav-link" onClick={() => loginWithRedirect()}>
+                Sign In
               </a>
             </div>
 

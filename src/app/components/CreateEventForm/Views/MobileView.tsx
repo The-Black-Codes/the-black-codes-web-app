@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form';
 import { TextField, Button } from '@mui/material';
 import { EventFormInputs, EventFormProps } from 'src/app/types/types.ts';
-import './MobileView.scss';
+import './MobileView.css';
 
 const MobileView: React.FC<EventFormProps & {createOrUpdate: (data: EventFormInputs) => void}> = ({isEditing, setIsEditing, createOrUpdate}) => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm<EventFormInputs>();

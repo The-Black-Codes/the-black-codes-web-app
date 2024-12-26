@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -22,12 +22,14 @@ const style = {
   p: 4,
 };
 
-const BasicModal: React.FC<ModalProps> = ({ event, open, setOpen, setIsEditing }) => {
+const BasicModal: React.FC<ModalProps> = ({
+  event,
+  open,
+  setOpen,
+  setIsEditing = null,
+}) => {
   const { events, setEvents, setSelectedEvent } = useContext(MyContext);
-  const { setValue } = useFormContext();
-  const [deleteConfimation, setDeleteConfirmation] =
-    React.useState<boolean>(false);
-  
+  const [deleteConfimation, setDeleteConfirmation] = useState<boolean>(false);
   const handleClose = () => setOpen(false);
   const handleDelete = () => {
     deleteEvent(event.id);
@@ -43,14 +45,19 @@ const BasicModal: React.FC<ModalProps> = ({ event, open, setOpen, setIsEditing }
     }
     handleClose();
     setSelectedEvent(event);
-    // Iterates over the keys of the event object and 
+    // Iterates over the keys of the event object and
     // sets the value of the input field with the same name as the key
     const inputs = document.getElementsByTagName('input');
     inputs[0].focus();
     Object.keys(event).forEach((key) => {
+      if (setIsEditing === null) {
+        return;
+      }
+
+      const { setValue } = useFormContext();
       for (let i = 0; i < inputs.length; i++) {
         if (inputs[i].name === key) {
-          if (inputs[i].name === 'start' || inputs[i].name === 'end') { 
+          if (inputs[i].name === 'start' || inputs[i].name === 'end') {
             // The value of the input field should be in the format 'YYYY-MM-DDTHH:MM'
             const date = new Date(event[key as keyof CalendarEvent] as string);
             const dateString = date.toISOString().slice(0, 16);
@@ -68,7 +75,6 @@ const BasicModal: React.FC<ModalProps> = ({ event, open, setOpen, setIsEditing }
     });
   };
 
-
   return (
     <>
       <Modal
@@ -80,27 +86,39 @@ const BasicModal: React.FC<ModalProps> = ({ event, open, setOpen, setIsEditing }
         <Box sx={style}>
           {!deleteConfimation ? (
             <>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              {event.title}
-            </Typography>
-            <Typography>{`${event.start} to ${event.end}`}</Typography>
-            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-              {event.description}
-            </Typography>
-            <Button color={'primary'} onClick={handleEdit}>
-              Edit
-            </Button>
-            <Button color={'error'} onClick={()=> setDeleteConfirmation(true)}>
-              Delete
-            </Button>
-          </>
+              <Typography id="modal-modal-title" variant="h6" component="h2">
+                {event.title}
+              </Typography>
+              <Typography>{`${event.start} to ${event.end}`}</Typography>
+              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                {event.description}
+              </Typography>
+              {setIsEditing === null ? null : (
+                <div className="edit-section">
+                  <Button color={'primary'} onClick={handleEdit}>
+                    Edit
+                  </Button>
+                  <Button
+                    color={'error'}
+                    onClick={() => setDeleteConfirmation(true)}
+                  >
+                    Delete
+                  </Button>
+                </div>
+              )}
+            </>
           ) : (
             <>
-              <Typography>Are you sure you want to delete this event?</Typography>
+              <Typography>
+                Are you sure you want to delete this event?
+              </Typography>
               <Button color={'primary'} onClick={handleDelete}>
                 Yes
               </Button>
-              <Button color={'error'} onClick={()=> setDeleteConfirmation(false)}>
+              <Button
+                color={'error'}
+                onClick={() => setDeleteConfirmation(false)}
+              >
                 No
               </Button>
             </>

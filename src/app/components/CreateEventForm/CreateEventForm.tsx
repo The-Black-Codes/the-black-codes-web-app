@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { TextField, Button } from '@mui/material';
-import './CreateEventForm.scss';
+import './CreateEventForm.css';
 import { EventFormInputs, EventFormProps } from 'src/app/types/types.ts';
 import MobileView from './Views/MobileView';
 import { addDoc, collection, doc, updateDoc } from 'firebase/firestore';
