@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { TextField, Button } from '@mui/material';
-import './CreateEventForm.css';
 import { EventFormInputs, EventFormProps } from 'src/app/types/types.ts';
 import MobileView from './Views/MobileView';
 import { addDoc, collection, doc, updateDoc } from 'firebase/firestore';
 import { db } from 'src/app/database/firebaseConfig';
 import { getAllEvents } from 'src/app/requests';
 import { MyContext } from 'src/app/context/EventsProvider';
+import './CreateEventForm.css';
 
 const CreateEventForm: React.FC<EventFormProps> = ({isEditing, setIsEditing}) => {
   const [mobileView, setMobileView] = useState(false);
@@ -15,6 +15,17 @@ const CreateEventForm: React.FC<EventFormProps> = ({isEditing, setIsEditing}) =>
   const { setEvents, selectedEvent } = useContext(MyContext);
   const { reset } = useForm<EventFormInputs>();
 
+  const clearForm = () => {
+    const inputs = document.getElementsByTagName('input');
+    const textareas = document.getElementsByTagName('textarea');
+    for (let i=0; i<inputs.length; i++) {
+      inputs[i].value = '';
+    }
+    for (let i=0; i<textareas.length; i++) {
+      textareas[i].value = '';
+    }
+    reset();
+  }
   const createEvent = async (data: EventFormInputs) => {
     try {
       const docRef = await addDoc(collection(db, 'events'), data);
@@ -22,7 +33,7 @@ const CreateEventForm: React.FC<EventFormProps> = ({isEditing, setIsEditing}) =>
       getAllEvents().then((events) => {
         if (events) {
           setEvents(events);
-          reset();
+          clearForm();
         } else {
           console.error('Failed to fetch events');
         }
@@ -41,7 +52,7 @@ const CreateEventForm: React.FC<EventFormProps> = ({isEditing, setIsEditing}) =>
           getAllEvents().then((events) => {
             if (events) {
               setEvents(events);
-              reset();
+              clearForm();
             } else {
               console.error('Failed to fetch events to update');
             }

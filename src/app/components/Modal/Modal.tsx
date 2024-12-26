@@ -29,6 +29,8 @@ const BasicModal: React.FC<ModalProps> = ({
   setIsEditing = null,
 }) => {
   const { events, setEvents, setSelectedEvent } = useContext(MyContext);
+  const formContext  = useFormContext();
+
   const [deleteConfimation, setDeleteConfirmation] = useState<boolean>(false);
   const handleClose = () => setOpen(false);
   const handleDelete = () => {
@@ -50,27 +52,23 @@ const BasicModal: React.FC<ModalProps> = ({
     const inputs = document.getElementsByTagName('input');
     inputs[0].focus();
     Object.keys(event).forEach((key) => {
-      if (setIsEditing === null) {
-        return;
-      }
-
-      const { setValue } = useFormContext();
+      
       for (let i = 0; i < inputs.length; i++) {
         if (inputs[i].name === key) {
           if (inputs[i].name === 'start' || inputs[i].name === 'end') {
             // The value of the input field should be in the format 'YYYY-MM-DDTHH:MM'
             const date = new Date(event[key as keyof CalendarEvent] as string);
             const dateString = date.toISOString().slice(0, 16);
-            setValue(key, dateString);
+            formContext.setValue(key, dateString);
             inputs[i].value = dateString;
           } else {
-            setValue(key, event[key as keyof CalendarEvent] as string);
+            formContext.setValue(key, event[key as keyof CalendarEvent] as string);
             inputs[i].value = event[key as keyof CalendarEvent] as string;
           }
         }
       }
       const textArea = document.getElementsByTagName('textarea');
-      setValue('description', event.description);
+      formContext.setValue('description', event.description);
       textArea[0].value = event.description;
     });
   };
