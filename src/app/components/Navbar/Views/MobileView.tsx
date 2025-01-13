@@ -8,11 +8,16 @@ import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
+import { useAuth0 } from '@auth0/auth0-react';
+import { MobileViewProps } from 'src/app/types/types';
 
-const MobileView = () => {
+
+
+const MobileView = ({isAdminPage}: MobileViewProps) => {
   const [state, setState] = useState({ right: false });
+  const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
+
 
   const goToSection = (text: string): string | undefined => {
     switch (text) {
@@ -83,6 +88,35 @@ const MobileView = () => {
             <ListItemText primary="Donate" />
           </a>
         </ListItem>
+        <Divider />
+          {!isAuthenticated ? (
+            <ListItem disablePadding>
+              <a onClick={() => loginWithRedirect()}><ListItemText primary="Admin" /></a>
+            </ListItem>
+          ) : (
+            <>
+            <ListItem disablePadding>
+              {
+              !isAdminPage ? (<a href={`${window.location.origin}/admin`}>
+                <ListItemText primary="Admin Page" />
+              </a>) : null
+              }
+            </ListItem>
+            <Divider />
+              <ListItem disablePadding>
+                <a onClick={() =>
+                    logout({ 
+                      logoutParams: { 
+                        returnTo: window.location.origin 
+                      } 
+                    })
+                  }
+                >
+                  <ListItemText primary="Log Out" />
+                </a>
+              </ListItem>
+            </>
+          )}
         <Divider />
       </List>
     </Box>

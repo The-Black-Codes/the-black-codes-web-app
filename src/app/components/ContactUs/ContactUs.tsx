@@ -31,7 +31,6 @@ const ContactForm: React.FC = () => {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log('Form Data Submitted:', formData);
     // Add logic to handle form submission like sending data to an API
     if (form.current) {
       emailjs

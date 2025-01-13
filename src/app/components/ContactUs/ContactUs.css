@@ -88,7 +88,7 @@
 .contact-form textarea {
   padding: 8px;
   border: 1px solid #ccc;
-  border-radius: 20px;
+  border-radius: 10px;
   font-size: 14px;
 }
 
@@ -129,7 +129,7 @@
   border: 1px solid #b972fc;
   padding: 10px 20px;
   width: 100%;
-  border-radius: 20px;
+  border-radius: 10px;
   cursor: pointer;
   font-size: 16px;
 }

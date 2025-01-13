@@ -1,0 +1,148 @@
+@import 'react-big-calendar/lib/sass/styles';
+
+.event-calendar-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.rbc-active {
+  background-color: #c798f39d !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+.rbc-event {
+  background-color: #5b2c87;
+}
+
+.rbc-selected {
+  background-color: #8934da9d !important;
+}
+
+/******* Month View ********/
+.rbc-calendar {
+  width: 1400px;
+  height: 1000px !important;
+  margin: 30px 0;
+}
+
+@media (max-width: 1445px) {
+  .rbc-calendar {
+    width: 1000px;
+    height: 600px !important;
+    margin: 30px 0;
+  }
+}
+
+@media (max-width: 1050px) {
+  .rbc-calendar {
+    width: 700px;
+    height: 600px !important;
+    margin: 30px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .rbc-calendar {
+    width: 500px;
+    height: 500px !important;
+    margin: 30px 0;
+  }
+}
+
+@media (max-width: 530px) {
+  .rbc-calendar {
+    width: 350px;
+    height: 400px !important;
+    margin: 30px 0;
+  }
+}
+
+.rbc-month-view {
+  border: 1px solid #2b2b2b;
+}
+
+.rbc-header {
+  color: #fff;
+  background-color: #5b2c87 !important;
+  border: none;
+}
+
+.rbc-btn-group {
+  background-color: #5b2c87;
+}
+
+.rbc-toolbar-label {
+  color: #fff;
+  font-family: 'Bungee', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: large;
+}
+
+.rbc-off-range-bg {
+  background-color: #5b2c87 !important;
+}
+
+.rbc-day-bg {
+  background-color: #fff;
+  border-top: 1px solid #2b2b2b;
+}
+
+.rbc-row-bg {
+}
+
+.rbc-day-bg + .rbc-day-bg {
+  border-left: 1px solid #2b2b2b;
+}
+
+.rbc-btn-group > button {
+  color: #fff;
+  border: 1px solid #2b2b2b;
+}
+
+.rbc-now > .rbc-button-link {
+  color: #fff;
+}
+
+/******* Day View ********/
+
+.rbc-time-view {
+  background-color: #fff;
+}
+
+.rbc-today {
+  background-color: #5b2c8753;
+}
+
+.rbc-today > .rbc-timeslot-group {
+  border-top: none;
+}
+
+.rbc-today > .rbc-day-slot .rbc-time-slot {
+  border-top: 1px solid #fff;
+}
+
+/******* Agenda View ********/
+
+.rbc-agenda-date-cell {
+  background-color: #fff;
+}
+
+.rbc-agenda-time-cell {
+  background-color: #fff;
+}
+
+.rbc-agenda-event-cell {
+  background-color: #fff;
+}
+
+.rbc-agenda-table {
+  border: none !important;
+}
+
+.rbc-agenda-empty {
+  background-color: #fff;
+  padding: 20px;
+}

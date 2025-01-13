@@ -10,3 +10,32 @@
   padding: 0.25rem;
   margin-top: 3rem;
 }
+
+a {
+  cursor: pointer;
+}
+
+.admin-nav-signed-in {
+  display: flex;
+  border-radius: 40rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-nav-signed-in-home {
+  display: flex;
+  border-radius: 40rem;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 50px;
+}
+
+#logoutIcon {
+  height: 20px;
+  width: 20px;
+}
+
+#adminPageIcon {
+  height: 20px;
+  width: 20px;
+}
