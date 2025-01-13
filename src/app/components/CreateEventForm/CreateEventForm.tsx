@@ -107,32 +107,54 @@ const CreateEventForm: React.FC<EventFormProps> = ({isEditing, setIsEditing}) =>
               name='title'
             />
           </div>
-            <div className="times">
-              <TextField
-                {...register('start', { required: 'Start time is required' })}
-                label="Start Time"
-                type="datetime-local"
-                variant="outlined"
-                fullWidth
-                InputLabelProps={{ shrink: true }}
-                error={!!errors.start}
-                helperText={errors.start?.message}
-                className="time"
-                name='start'
-              />
-              <TextField
-                {...register('end', { required: 'End time is required' })}
-                label="End Time"
-                type="datetime-local"
-                variant="outlined"
-                fullWidth
-                InputLabelProps={{ shrink: true }}
-                error={!!errors.end}
-                helperText={errors.end?.message}
-                className="time"
-                name='end'
-              />
-            </div>
+          <div className="times">
+            <TextField
+              {...register('start', { required: 'Start time is required' })}
+              label="Start Time"
+              type="datetime-local"
+              variant="outlined"
+              fullWidth
+              InputLabelProps={{ shrink: true }}
+              error={!!errors.start}
+              helperText={errors.start?.message}
+              className="time"
+              name='start'
+            />
+            <TextField
+              {...register('end', { required: 'End time is required' })}
+              label="End Time"
+              type="datetime-local"
+              variant="outlined"
+              fullWidth
+              InputLabelProps={{ shrink: true }}
+              error={!!errors.end}
+              helperText={errors.end?.message}
+              className="time"
+              name='end'
+            />
+          </div>
+          <div className="text-input">
+            <TextField
+              {...register('location', { required: 'Location is required' })}
+              label="Location"
+              variant="outlined"
+              fullWidth
+              error={!!errors.location}
+              helperText={errors.location?.message}
+              name='location'
+            />
+          </div>
+          <div className="text-input">
+            <TextField
+              {...register('eventLink')}
+              label="Eventbrite Link"
+              variant="outlined"
+              fullWidth
+              error={!!errors.eventLink}
+              helperText={errors.eventLink?.message}
+              name='eventLink'
+            />
+          </div>
           <div className="text-input">
             <TextField
               {...register('description')}

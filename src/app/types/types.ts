@@ -3,6 +3,9 @@ export interface EventFormInputs {
   start: Date;
   end: Date;
   description: string;
+  eventLink?: string;
+  location: string;
+  image?: FileList;
 }
 
 export interface CalendarEvent {
@@ -11,6 +14,9 @@ export interface CalendarEvent {
   start: Date;
   end: Date;
   description: string;
+  eventLink?: string;
+  location: string;
+  image?: FileList;
 }
 
 export interface CalendarProps {
@@ -32,4 +38,8 @@ export interface EventFormProps {
 
 export interface MobileViewProps {
   isAdminPage: boolean;
+}
+
+export interface HTMLInputEvent extends Event {
+  target: HTMLInputElement & EventTarget;
 }

@@ -50,6 +50,28 @@ const MobileView: React.FC<EventFormProps & {createOrUpdate: (data: EventFormInp
           </div>
           <div className="text-input">
             <TextField
+              {...register('location', { required: 'Location is required' })}
+              label="Location"
+              variant="outlined"
+              fullWidth
+              error={!!errors.location}
+              helperText={errors.location?.message}
+              name='location'
+            />
+          </div>
+          <div className="text-input">
+            <TextField
+              {...register('eventLink')}
+              label="Eventbrite Link"
+              variant="outlined"
+              fullWidth
+              error={!!errors.eventLink}
+              helperText={errors.eventLink?.message}
+              name='eventLink'
+            />
+          </div>
+          <div className="text-input">
+            <TextField
               {...register('description')}
               label="Description"
               variant="outlined"
