@@ -25,21 +25,16 @@ const Navbar = () => {
         <MobileView />
       ) : (
         <>
-          <div>
-            <a href="#home">Home</a>
-          </div>
-          <div>
-            <a href="#about-us">About</a>
-          </div>
-          <div>
-            <a href="#milestones">Milestones</a>
-          </div>
-          <div>
-            <a href="#contact-us">Contact Us</a>
-          </div>
-          <div>
-            <a href="#donate">Donate</a>
-          </div>
+        <nav className="navbar">
+          <ul className="navbar-list">
+            <li className="nav-item"><a href="#home">Home</a></li>
+            <li className="nav-item"><a href="#about">About</a></li>
+            <li className="nav-item"><a href="#milestones">Milestones</a></li>
+            <li className="nav-item"><a href="#contact">Contact</a></li>
+            <li className="nav-item"><a href="#donate">Donate</a></li>
+          </ul>
+        </nav>
+
         </>
       )}
     </div>
