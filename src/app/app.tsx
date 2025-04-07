@@ -10,7 +10,7 @@ import Sponsorship from './components/Sponsor/Sponsors';
 
 export const App = () => {
   return (
-    <div id="home" className="app-container primary-bg mx-auto max-w-custom">
+    <div id="home" className="app-container">
       <Navbar />
       <Hero />
       <AboutUs />
