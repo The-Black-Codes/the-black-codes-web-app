@@ -1,5 +1,5 @@
 import React, { useState, useRef, ChangeEvent, FormEvent } from 'react';
-import './ContactUs.css'; // Ensure the CSS is correctly imported
+import './ContactUs2.css';
 import emailjs from '@emailjs/browser';
 
 interface FormData {
@@ -19,6 +19,8 @@ const ContactForm: React.FC = () => {
     message: '',
   });
 
+  const [submissionStatus, setSubmissionStatus] = useState<string | null>(null);
+
   const handleChange = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -31,26 +33,33 @@ const ContactForm: React.FC = () => {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log('Form Data Submitted:', formData);
-    // Add logic to handle form submission like sending data to an API
+
     if (form.current) {
       emailjs
         .sendForm(
-          'service_vlh0aho', //service_id
-          'template_zopzi5d', //template_id
+          'service_vlh0aho',
+          'template_zopzi5d',
           form.current,
           { publicKey: 'zcVIyTK52C2MPH_Gn' }
         )
-        .then(
-          () => {
-            console.log('SUCCESS!');
-          },
-          (error) => {
-            console.log('FAILED...', error.text);
-          }
-        )
-        .catch((error: any) => {
-          console.error('An error occurred:', error.message || 'Unknown error');
+        .then(() => {
+          setSubmissionStatus('✅ Thank you! Your message has been sent.');
+
+          // Clear form inputs
+          setFormData({ firstName: '', lastName: '', user_email: '', message: '' });
+
+          // Auto-hide message after 5 seconds
+          setTimeout(() => {
+            setSubmissionStatus(null);
+          }, 5000);
+        })
+        .catch((error) => {
+          console.error('FAILED...', error.text);
+          setSubmissionStatus('❌ Something went wrong. Please try again.');
+
+          setTimeout(() => {
+            setSubmissionStatus(null);
+          }, 5000);
         });
     }
   };
@@ -108,6 +117,9 @@ const ContactForm: React.FC = () => {
             />
           </div>
           <button type="submit">Submit</button>
+          {submissionStatus && (
+            <p className="form-status-message">{submissionStatus}</p>
+          )}
         </form>
       </div>
     </div>
@@ -115,3 +127,4 @@ const ContactForm: React.FC = () => {
 };
 
 export default ContactForm;
+

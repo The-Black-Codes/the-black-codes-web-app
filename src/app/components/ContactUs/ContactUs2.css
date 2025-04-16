@@ -1,0 +1,118 @@
+/* === Layout Container === */
+.contact-form-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 10rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* === Left Column (Text Content) === */
+  .left-column {
+    flex: 1;
+    min-width: 280px;
+  }
+  
+  .left-column .header {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+  
+  .left-column p {
+    line-height: 1.7;
+    font-size: 1.4rem;
+    color: #fff;
+  }
+  
+  /* === Right Column (Form) === */
+  .right-column {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  /* === Inputs & Textarea === */
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 40px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  
+  .contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+    border-radius: 20px !important;
+  }
+  
+  /* === Row for First/Last Name === */
+  .row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .name-input {
+    flex: 1;
+    min-width: 140px;
+  }
+  
+  /* === Button === */
+  .contact-form button {
+    background-color: #5b2c87;
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-form button:hover {
+    background-color: #a268cf;
+  }
+  
+  /* === Responsive Mobile View === */
+  @media (max-width: 768px) {
+    .contact-form-container {
+      flex-direction: column;
+      gap: 3rem;
+    }
+  
+    .row {
+      flex-direction: column;
+    }
+  }
+
+  .form-status-message {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    background-color: #e0ffe8;
+    color: #5b2c87;
+    font-weight: 700;
+    text-align: center;
+    transition: opacity 0.3s ease;
+  }
+  
+  .form-status-message:empty {
+    display: none;
+  }
+  
+  
